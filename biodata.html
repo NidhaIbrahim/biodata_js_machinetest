@@ -16,7 +16,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="style.css">
 
-   
+
 </head>
 
 <body>
@@ -70,6 +70,14 @@
                     </label>
                     <input type="text" class="form-control" id="qualification" placeholder="Enter Qualifications">
                 </div>
+
+                <div class="form-group mb-5 mx-5 w-75">
+                    <label for="photo" class="form-label d-flex align-content-start fs-3">
+                        Photo Upload
+                    </label>
+                        <input class="form-control" type="file" id="photo">
+                </div>
+
                 <div class="form-group mb-5 mx-5 w-75">
                     <button type="button" class="btn btn-color btn-lg " onclick="AddToTable()">ADD</button>
                 </div>
@@ -87,6 +95,7 @@
                 <!-- <th scope="col" class="w-25">Gender</th> -->
                 <th scope="col" class="w-25">Address</th>
                 <th scope="col" class="w-25">Qualification</th>
+                <th scope="col" class="w-25">Photo</th>
                 <th scope="col" class="w-25">Delete</th>
                 <th scope="col" class="w-25">Edit</th>
             </tr>
@@ -130,6 +139,9 @@
                     <label for="edit_qualification">Qualification</label>
                     <input type="text" id="edit_qualification" />
                     <br />
+                    <label for="edit_photo">photo Upload</label>
+                    <input type="file" id="edit_photo" />
+                    <br />
                     <input type="text" hidden id="trid" />
                 </div>
                 <div class="modal-footer">
@@ -153,6 +165,7 @@
             // var gender = document.getElementById('female').value;
             var address = document.getElementById('address').value;
             var qualification = document.getElementById('qualification').value;
+            var photo = document.getElementById('photo').value;
             var tableID = document.getElementById('tableValue');
 
 
@@ -169,6 +182,7 @@
             // var gender_ = newRow.insertCell();
             var add = newRow.insertCell();
             var qualif = newRow.insertCell();
+            var photoup = newRow.insertCell();
             var delete_col = newRow.insertCell();
             var edit_col = newRow.insertCell();
 
@@ -178,9 +192,10 @@
             age_.innerHTML = age;
             email_.innerHTML = email;
             date_of_birth.innerHTML = dob;
-            // gender_.innerHTML = ;
+            // gender_.innerHTML = male;
             add.innerHTML = address;
             qualif.innerHTML = qualification;
+            photoup.innerHTML = photo;
 
 
             var delBtn = document.createElement("BUTTON");
@@ -220,6 +235,7 @@
                 // document.getElementById("edit_gender").value = editList[6].innerHTML;
                 document.getElementById("edit_address").value = editList[6].innerHTML;
                 document.getElementById("edit_qualification").value = editList[7].innerHTML;
+                document.getElementById("edit_photo").value = editList[8].innerHTML;
 
             });
             edit_col.appendChild(editBtn);
@@ -234,6 +250,7 @@
             // var edgender = document.getElementById('edit_gender').value;
             var edadd = document.getElementById('edit_address').value;
             var edqualification = document.getElementById('edit_qualification').value;
+            var edphoto = document.getElementById('edit_photo').value;
 
             var submitList = document.getElementById(editId).childNodes;
             submitList[1].innerHTML = edfname;
@@ -244,6 +261,7 @@
             // submitList[6].innerHTML = edgender;
             submitList[6].innerHTML = edadd;
             submitList[7].innerHTML = edqualification;
+            submitList[8].innerHTML = edphoto;
 
         }
 
