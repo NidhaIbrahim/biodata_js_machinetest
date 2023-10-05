@@ -1,0 +1,56 @@
+* {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+h1 {
+    color: rgb(190, 108, 75);
+    font-weight: 400;
+}
+
+.bg {
+    background-color: rgb(207, 100, 79);
+    color: rgb(244, 230, 227);
+}
+
+label {
+    color: rgb(240, 240, 240);
+}
+
+.btn-color {
+    background-color: whitesmoke;
+    color: rgb(207, 100, 79);
+    border: none;
+    border-radius: 3px;
+    width: 100px;
+    font-weight: 600;
+}
+
+.btn-color:hover {
+    background-color: rgb(224, 176, 166);
+    color: whitesmoke;
+    border: none;
+    border-radius: 3px;
+    width: 100px;
+    font-weight: 600;
+}
+
+.modal-title,
+.modal-body label {
+    color: whitesmoke;
+}
+
+.modal-body input,
+.modal-body textarea {
+    color: rgb(7, 7, 6);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: left;
+}
+
+.modal-header button {
+    width: 50%;
+    display: flex;
+    justify-content: left;
+}

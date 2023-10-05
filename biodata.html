@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+   
+</head>
+
+<body>
+
+    <div>
+        <h1 align="center">BIO DATA FORM</h1>
+    </div>
+    <center>
+        <form action="">
+            <div class="row w-50 mb-5 pt-5 bg">
+                <div class="form-group mb-5 mx-5 w-75">
+                    <label for="fname" class="form-label d-flex align-content-start fs-3"> First Name :
+                    </label>
+                    <input type="text" class="form-control" id="fname" placeholder="Enter First Name">
+                </div>
+                <div class="form-group mb-5 mx-5 w-75">
+                    <label for="lname" class="form-label d-flex align-content-start fs-3"> Last Name :
+                    </label>
+                    <input type="text" class="form-control" id="lname" placeholder="Enter Last Name">
+                </div>
+                <div class="form-group mb-5 mx-5 w-75">
+                    <label for="age" class="form-label d-flex align-content-start fs-3"> Age : </label>
+                    <input type="number" class="form-control" id="age" placeholder="Enter Age here">
+                </div>
+                <div class="form-group mb-5 mx-5 w-75">
+                    <label for="email" class="form-label d-flex align-content-start fs-3"> Email : </label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter Email Address">
+                </div>
+                <div class="form-group mb-5 mx-5 w-75">
+                    <label for="dob" class="form-label d-flex align-content-start fs-3"> DOB : </label>
+                    <input type="date" class="form-control" id="dob">
+                </div>
+                <!-- <div class="form-group mb-5 mx-5 w-75">
+                    <label for="gender" class="form-label d-flex align-content-start fs-3">Gender :</label>
+                    <div class="form-check">
+                        <label for="male" class="form-check-label">Male</label>
+                        <input type="radio" name="gender" id="male" value="male" class="form-check-input">
+                    </div>
+                    <div class="form-check">
+                        <label for="female" class="form-check-label">Female</label>
+                        <input type="radio" name="gender" id="female" value="female" class="form-check-input">
+                    </div>
+                </div> -->
+                <div class="form-group mb-5 mx-5 w-75">
+                    <label for="address" class="form-label d-flex align-content-start fs-3">Address :</label>
+                    <textarea class="form-control" id="address" rows="3"></textarea>
+                </div>
+                <div class="form-group mb-5 mx-5 w-75">
+                    <label for="qualification" class="form-label d-flex align-content-start fs-3">
+                        Qualification :
+                    </label>
+                    <input type="text" class="form-control" id="qualification" placeholder="Enter Qualifications">
+                </div>
+                <div class="form-group mb-5 mx-5 w-75">
+                    <button type="button" class="btn btn-color btn-lg " onclick="AddToTable()">ADD</button>
+                </div>
+            </div>
+        </form>
+
+        <table class="table  table-striped" id="tableValue">
+            <tr>
+                <th scope="col" class="w-25">SlNo:</th>
+                <th scope="col" class="w-25">First Name</th>
+                <th scope="col" class="w-25">Last Name</th>
+                <th scope="col" class="w-25">Age</th>
+                <th scope="col" class="w-25">Email</th>
+                <th scope="col" class="w-25">Date of Birth</th>
+                <!-- <th scope="col" class="w-25">Gender</th> -->
+                <th scope="col" class="w-25">Address</th>
+                <th scope="col" class="w-25">Qualification</th>
+                <th scope="col" class="w-25">Delete</th>
+                <th scope="col" class="w-25">Edit</th>
+            </tr>
+
+        </table>
+    </center>
+
+    <!-- Modal -->
+    <div class="modal fade " id="myModal" role="dialog">
+        <div class="modal-dialog ">
+            <!-- Modal content-->
+            <div class="modal-content bg">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        &times;
+                    </button>
+                    <h3 class="modal-title">EDIT BIO DATA</h3>
+                </div>
+                <div class="modal-body">
+                    <label for="edit_first_name">First Name</label>
+                    <input type="text" id="edit_first_name" />
+                    <br />
+                    <label for="edit_last_name">Last Name</label>
+                    <input type="text" id="edit_last_name" />
+                    <br />
+                    <label for="edit_age">Age</label>
+                    <input type="number" id="edit_age" />
+                    <br />
+                    <label for="edit_email">Email</label>
+                    <input type="email" id="edit_email" />
+                    <br />
+                    <label for="edit_dob">Date of Birth</label>
+                    <input type="date" id="edit_dob" />
+                    <br />
+                    <!-- <label for="edit_gender">Gender</label>
+                    <input type="radio" id="edit_gender" />
+                    <br /> -->
+                    <label for="edit_address">Address</label>
+                    <textarea id="edit_address" rows="3"></textarea>
+                    <br />
+                    <label for="edit_qualification">Qualification</label>
+                    <input type="text" id="edit_qualification" />
+                    <br />
+                    <input type="text" hidden id="trid" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="editbtn" onclick="edit()" class="btn btn-default" data-dismiss="modal">
+                        SUBMIT</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        var i = 1;
+        function AddToTable() {
+            var fname = document.getElementById('fname').value;
+            var lname = document.getElementById('lname').value;
+            var age = document.getElementById('age').value;
+            var email = document.getElementById('email').value;
+            var dob = document.getElementById('dob').value;
+            // var male = document.getElementById('male').value;
+            // var gender = document.getElementById('female').value;
+            var address = document.getElementById('address').value;
+            var qualification = document.getElementById('qualification').value;
+            var tableID = document.getElementById('tableValue');
+
+
+            var newRow = tableID.insertRow();
+
+            newRow.setAttribute("id", i)
+
+            var SlNo = newRow.insertCell();
+            var first_name = newRow.insertCell();
+            var last_name = newRow.insertCell();
+            var age_ = newRow.insertCell();
+            var email_ = newRow.insertCell();
+            var date_of_birth = newRow.insertCell();
+            // var gender_ = newRow.insertCell();
+            var add = newRow.insertCell();
+            var qualif = newRow.insertCell();
+            var delete_col = newRow.insertCell();
+            var edit_col = newRow.insertCell();
+
+            SlNo.innerHTML = i++;
+            first_name.innerHTML = fname;
+            last_name.innerHTML = lname;
+            age_.innerHTML = age;
+            email_.innerHTML = email;
+            date_of_birth.innerHTML = dob;
+            // gender_.innerHTML = ;
+            add.innerHTML = address;
+            qualif.innerHTML = qualification;
+
+
+            var delBtn = document.createElement("BUTTON");
+            delBtn.innerHTML = "DELETE";
+            delBtn.style.backgroundColor = "rgb(207, 100, 79)";
+            delBtn.style.color = "white";
+            delBtn.style.border = "none";
+
+            delBtn.addEventListener("click", function handleClick(event) {
+                var delId = event.target.parentElement.parentElement.id;
+                element = document.getElementById(delId);
+                element.remove();
+            });
+
+            delete_col.appendChild(delBtn);
+
+            var editBtn = document.createElement("BUTTON");
+            editBtn.innerHTML = "EDIT";
+            editBtn.style.backgroundColor = "rgb(207, 100, 79)";
+            editBtn.style.color = "white";
+            editBtn.style.border = "none";
+
+            editBtn.setAttribute("data-toggle", "modal");
+            editBtn.setAttribute("data-target", "#myModal");
+
+            editBtn.addEventListener("click", function handleEdit(event) {
+                editId = event.target.parentElement.parentElement.id;
+                editList = document.getElementById(editId).childNodes;
+
+                console.log(editList);
+
+                document.getElementById("edit_first_name").value = editList[1].innerHTML;
+                document.getElementById("edit_last_name").value = editList[2].innerHTML;
+                document.getElementById("edit_age").value = editList[3].innerHTML;
+                document.getElementById("edit_email").value = editList[4].innerHTML;
+                document.getElementById("edit_dob").value = editList[5].innerHTML;
+                // document.getElementById("edit_gender").value = editList[6].innerHTML;
+                document.getElementById("edit_address").value = editList[6].innerHTML;
+                document.getElementById("edit_qualification").value = editList[7].innerHTML;
+
+            });
+            edit_col.appendChild(editBtn);
+        }
+
+        function edit() {
+            var edfname = document.getElementById('edit_first_name').value;
+            var edlname = document.getElementById('edit_last_name').value;
+            var edage = document.getElementById('edit_age').value;
+            var edemail = document.getElementById('edit_email').value;
+            var eddob = document.getElementById('edit_dob').value;
+            // var edgender = document.getElementById('edit_gender').value;
+            var edadd = document.getElementById('edit_address').value;
+            var edqualification = document.getElementById('edit_qualification').value;
+
+            var submitList = document.getElementById(editId).childNodes;
+            submitList[1].innerHTML = edfname;
+            submitList[2].innerHTML = edlname;
+            submitList[3].innerHTML = edage;
+            submitList[4].innerHTML = edemail;
+            submitList[5].innerHTML = eddob;
+            // submitList[6].innerHTML = edgender;
+            submitList[6].innerHTML = edadd;
+            submitList[7].innerHTML = edqualification;
+
+        }
+
+    </script>
+</body>
+
+</html>
